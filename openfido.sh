@@ -16,7 +16,7 @@ error()
 # configure template 
 gridlabd template config set GITUSER isabellekcobb
 gridlabd template config set GITREPO gridlabd-template
-gridlabd template config set GITBRANCH master
+gridlabd template config set GITBRANCH main
 gridlabd template get $TEMPLATE
 
 trap on_error 1 2 3 4 6 7 8 11 13 14 15
@@ -64,7 +64,7 @@ if [ -e "config.csv" ]; then
     WIND_DIR=$(grep ^WIND_DIR, "config.csv" | cut -f2- -d, | tr ',' ' ')
     WIND_DIR_INC=$(grep ^WIND_DIR_INC, "config.csv" | cut -f2- -d, | tr ',' ' ')
     POLE_DIV=$(grep ^POLE_DIV, "config.csv" | cut -f2- -d, | tr ',' ' ')
-    INCOME_DATA=$(grep ^INCOME_DATA, "config.csv" | cut -f2- -d, | tr ',' ' ')
+    // INCOME_DATA=$(grep ^INCOME_DATA, "config.csv" | cut -f2- -d, | tr ',' ' ')
     echo "Config settings:"
     echo "  ANALYSIS = ${ANALYSIS:-pole_analysis}"
     echo "  POLE_DATA = ${POLE_DATA:-}"
@@ -73,7 +73,7 @@ else
     echo "No 'config.csv', using default settings:"
     echo "ANALYSIS = 'pole_analysis'"
     echo "POLE_DATA = "
-    echo "INCOME_DATA = "
+    // echo "INCOME_DATA = "
     echo "USECASE = "
     echo "POLE_NAME = "
     ANALYSIS="pole_analysis"
@@ -86,7 +86,7 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/add_info.py # this needs to get integrated into the gridlabd source code
     gridlabd geodata merge -D powerline $OPENFIDO_OUTPUT/path_vege.csv --cable_type="TACSR/AC 610mm^2" >$OPENFIDO_OUTPUT/path_result.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/demographics_analysis.py
+    // python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/demographics_analysis.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
 
