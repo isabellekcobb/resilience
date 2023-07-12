@@ -14,7 +14,7 @@ error()
 }
 
 # configure template 
-gridlabd template config set GITUSER isabellekcobb
+gridlabd template config set GITUSER slacgismo
 gridlabd template config set GITREPO gridlabd-template
 gridlabd template config set GITBRANCH develop-add-veg
 gridlabd template get $TEMPLATE
@@ -64,16 +64,13 @@ if [ -e "config.csv" ]; then
     WIND_DIR=$(grep ^WIND_DIR, "config.csv" | cut -f2- -d, | tr ',' ' ')
     WIND_DIR_INC=$(grep ^WIND_DIR_INC, "config.csv" | cut -f2- -d, | tr ',' ' ')
     POLE_DIV=$(grep ^POLE_DIV, "config.csv" | cut -f2- -d, | tr ',' ' ')
-    INCOME_DATA=$(grep ^INCOME_DATA, "config.csv" | cut -f2- -d, | tr ',' ' ')
     echo "Config settings:"
     echo "  ANALYSIS = ${ANALYSIS:-pole_analysis}"
     echo "  POLE_DATA = ${POLE_DATA:-}"
-    echo "  INCOME_DATA = ${INCOME_DATA:-}"
 else
     echo "No 'config.csv', using default settings:"
     echo "ANALYSIS = 'pole_analysis'"
     echo "POLE_DATA = "
-    echo "INCOME_DATA = "
     echo "USECASE = "
     echo "POLE_NAME = "
     ANALYSIS="pole_analysis"
