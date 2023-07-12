@@ -90,6 +90,17 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
         echo "ERROR [openfido.sh]: Please set a usecase for pole analysis" > /dev/stderr
         error
     fi
+
+// opening poles status from path_result_plot.csv to compare with income by zipcode data
+import pandas as pd
+
+// Read the CSV file
+df = pd.read_csv('path_result_plot.csv');
+
+// Extract the desired column and export to a file
+desired_column = df['status']; 
+desired_column.to_csv('status.csv', index=False);
+
     
     CSV_NAME="poles_w_equip_and_network"
     GLM_NAME="network"
