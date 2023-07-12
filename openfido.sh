@@ -1,4 +1,4 @@
-#!/bin/sh
+c#!/bin/sh
 #
 # GridLAB-D environment for OpenFIDO
 #
@@ -14,9 +14,9 @@ error()
 }
 
 # configure template 
-gridlabd template config set GITUSER slacgismo
+gridlabd template config set GITUSER isabellekcobb
 gridlabd template config set GITREPO gridlabd-template
-gridlabd template config set GITBRANCH develop-add-veg
+gridlabd template config set GITBRANCH master
 gridlabd template get $TEMPLATE
 
 trap on_error 1 2 3 4 6 7 8 11 13 14 15
@@ -83,6 +83,7 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/add_info.py # this needs to get integrated into the gridlabd source code
     gridlabd geodata merge -D powerline $OPENFIDO_OUTPUT/path_vege.csv --cable_type="TACSR/AC 610mm^2" >$OPENFIDO_OUTPUT/path_result.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
+    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/demographics_analysis.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
 
@@ -90,17 +91,6 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
         echo "ERROR [openfido.sh]: Please set a usecase for pole analysis" > /dev/stderr
         error
     fi
-
-// opening poles status from path_result_plot.csv to compare with income by zipcode data
-import pandas as pd
-
-// Read the CSV file
-df = pd.read_csv('path_result_plot.csv');
-
-// Extract the desired column and export to a file
-desired_column = df['status']; 
-desired_column.to_csv('status.csv', index=False);
-
     
     CSV_NAME="poles_w_equip_and_network"
     GLM_NAME="network"
