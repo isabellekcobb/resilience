@@ -64,13 +64,16 @@ if [ -e "config.csv" ]; then
     WIND_DIR=$(grep ^WIND_DIR, "config.csv" | cut -f2- -d, | tr ',' ' ')
     WIND_DIR_INC=$(grep ^WIND_DIR_INC, "config.csv" | cut -f2- -d, | tr ',' ' ')
     POLE_DIV=$(grep ^POLE_DIV, "config.csv" | cut -f2- -d, | tr ',' ' ')
+    INCOME_DATA=$(grep ^POLE_DATA, "config.csv" | cut -f2- -d, | tr ',' ' ')
     echo "Config settings:"
     echo "  ANALYSIS = ${ANALYSIS:-pole_analysis}"
     echo "  POLE_DATA = ${POLE_DATA:-}"
+    echo "  INCOME_DATA = ${INCOME_DATA:-}"
 else
     echo "No 'config.csv', using default settings:"
     echo "ANALYSIS = 'pole_analysis'"
     echo "POLE_DATA = "
+    echo "INCOME_DATA = "
     echo "USECASE = "
     echo "POLE_NAME = "
     ANALYSIS="pole_analysis"
@@ -117,6 +120,8 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
 fi 
 
 elif [ "$ANALYSIS" = "income_analysis" ]; then 
+    echo "Running income analysis, only."
+    
 fi
 
 # ( gridlabd template $TEMPLATE_CFG get $TEMPLATE && gridlabd --redirect all $OPTIONS -t $TEMPLATE  ) || error
