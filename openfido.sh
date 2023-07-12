@@ -116,6 +116,9 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
     fi
 fi 
 
+elif [ "$ANALYSIS" = "income_analysis" ]; then 
+fi
+
 # ( gridlabd template $TEMPLATE_CFG get $TEMPLATE && gridlabd --redirect all $OPTIONS -t $TEMPLATE  ) || error
 
 echo '*** OUTPUTS ***'
