@@ -65,7 +65,7 @@
       "default": "100.0",
       "input_type": "str"
     },
-    "Pole Analysis options": { "input_type": "title" },
+    "Income Data Input": { "input_type": "title" },
     "INCOME_DATA": {
       "prompt": "Include income data (csv/xls)",
       "description": "Income data, csv/xls",
