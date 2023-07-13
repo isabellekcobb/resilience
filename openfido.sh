@@ -1,4 +1,4 @@
-c#!/bin/sh
+#!/bin/sh
 #
 # GridLAB-D environment for OpenFIDO
 #
