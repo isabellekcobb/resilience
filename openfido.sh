@@ -14,7 +14,7 @@ error()
 }
 
 # configure template 
-gridlabd template config set GITUSER isabellekcobb
+gridlabd template config set GITUSER slacgismo
 gridlabd template config set GITREPO gridlabd-template
 gridlabd template config set GITBRANCH develop-add-veg
 gridlabd template get $TEMPLATE
