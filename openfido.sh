@@ -85,7 +85,6 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
-    gridlabd geodata -d -D distance location 37.4150,-122.2056 37.3880,-122.2884 >$OPENFIDO_OUTPUT/distance.csv
 
     if [ "$USECASE" = "--" ]; then
         echo "ERROR [openfido.sh]: Please set a usecase for pole analysis" > /dev/stderr
