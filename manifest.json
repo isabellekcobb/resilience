@@ -64,7 +64,7 @@
       "prompt": "(optional) Number of division (default 100 divisions)",
       "default": "100.0",
       "input_type": "str"
-    },
+    }
     //"Income Data Input": { "input_type": "title" },
     //"INCOME_DATA": {
      // "prompt": "Include income data (csv/xls)",
