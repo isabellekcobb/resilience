@@ -89,7 +89,6 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     delimiter=","
     column_data=$(echo "$POLE_DATA" | awk -v lat="latitude" -v lon="longitude" -F "$delimiter" 'NR==1{for(i=1;i<=NF;i++){if($i==lat) lat_col=i; if($i==lon) lon_col=i}} NR>1{print $lat_col,$lon_col}')
     echo "$column_data"
-    gridlabd geodata merge -D census column_data -o $OPENFIDO_OUTPUT/census.csv
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
     if [ "$USECASE" = "--" ]; then
         echo "ERROR [openfido.sh]: Please set a usecase for pole analysis" > /dev/stderr
