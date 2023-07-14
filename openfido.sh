@@ -77,6 +77,7 @@ else
     USECASE="all"
     POLE_NAME=""
 fi
+gridlabd geodata merge -D census 37.5,-122.2 37.4,-122.3 -o $OPENFIDO_OUTPUT/census.csv
 if [ "$ANALYSIS" = "vegetation_analysis" ]; then 
     echo "Running vegetation analysis, only."
     gridlabd geodata merge -D elevation $OPENFIDO_INPUT/$POLE_DATA -r 30 | gridlabd geodata merge -D vegetation >$OPENFIDO_OUTPUT/path_vege.csv
@@ -85,7 +86,6 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
-
     if [ "$USECASE" = "--" ]; then
         echo "ERROR [openfido.sh]: Please set a usecase for pole analysis" > /dev/stderr
         error
