@@ -77,7 +77,7 @@ else
     USECASE="all"
     POLE_NAME=""
 fi
-gridlabd geodata merge -D census $OPENFIDO_INPUT/$POLE_DATA -o $OPENFIDO_OUTPUT/census.csv
+
 if [ "$ANALYSIS" = "vegetation_analysis" ]; then 
     echo "Running vegetation analysis, only."
     gridlabd geodata merge -D elevation $OPENFIDO_INPUT/$POLE_DATA -r 30 | gridlabd geodata merge -D vegetation >$OPENFIDO_OUTPUT/path_vege.csv
@@ -85,6 +85,11 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     gridlabd geodata merge -D powerline $OPENFIDO_OUTPUT/path_vege.csv --cable_type="TACSR/AC 610mm^2" >$OPENFIDO_OUTPUT/path_result.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
+
+    delimiter=","
+    column_data=$(echo "$POLE_DATA" | awk -v lat="latitude" -v lon="longitude" -F "$delimiter" 'NR==1{for(i=1;i<=NF;i++){if($i==lat) lat_col=i; if($i==lon) lon_col=i}} NR>1{print $lat_col,$lon_col}')
+    echo "$column_data"
+    gridlabd geodata merge -D census column_data -o $OPENFIDO_OUTPUT/census.csv
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
     if [ "$USECASE" = "--" ]; then
         echo "ERROR [openfido.sh]: Please set a usecase for pole analysis" > /dev/stderr
