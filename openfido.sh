@@ -77,7 +77,7 @@ else
     USECASE="all"
     POLE_NAME=""
 fi
-gridlabd geodata merge -D census 37.5,-122.2 37.4,-122.3 -o $OPENFIDO_OUTPUT/census.csv
+gridlabd geodata merge -D census $OPENFIDO_INPUT/$POLE_DATA -o $OPENFIDO_OUTPUT/census.csv
 if [ "$ANALYSIS" = "vegetation_analysis" ]; then 
     echo "Running vegetation analysis, only."
     gridlabd geodata merge -D elevation $OPENFIDO_INPUT/$POLE_DATA -r 30 | gridlabd geodata merge -D vegetation >$OPENFIDO_OUTPUT/path_vege.csv
