@@ -86,7 +86,11 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     gridlabd geodata merge -D powerline $OPENFIDO_OUTPUT/path_vege.csv --cable_type="TACSR/AC 610mm^2" >$OPENFIDO_OUTPUT/path_result.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
+
+    cut -d ',' -f 1 "$OPENFIDO_INPUT/$POLE_DATA" > latitude.csv
+    cut -d ',' -f 2 "$OPENFIDO_INPUT/$POLE_DATA" > longitude.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/latlongtozip.py
+    
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/income_data.py
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/income_data.py
