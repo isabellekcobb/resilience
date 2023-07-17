@@ -6,7 +6,7 @@ zipcodes=pd.read_csv('path_example.csv')
 # load the income data
 # Source: https://www.psc.isr.umich.edu/dis/census/HCT012.csv
 print(f"Loading income data...",end='',flush=True)
-income = pandas.read_csv("income_CA.csv",index_col="zipcode")
+income = pd.read_csv("income_CA.csv",index_col="zipcode")
 print("ok",flush=True)
 
 # add the income data
