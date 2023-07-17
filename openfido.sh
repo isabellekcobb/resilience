@@ -91,7 +91,7 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     cut -d ',' -f 2 "$OPENFIDO_INPUT/$POLE_DATA" >$OPENFIDO_OUTPUT/longitude.csv
     LATITUDE=$(grep ^LATITUDE, "latitude.csv" | cut -f1- -d, | tr ',' ' ')
     LONGITUDE=$(grep ^LONGITUDE, "longitude.csv" | cut -f1- -d, | tr ',' ' ')
-    gridlabd geodata merge -D census LATITUDE,LONGITUDE -o $OPENFIDO_OUTPUT/test_zipcode.csv 
+    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/latlongtozip.py
     
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/income_data.py
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
