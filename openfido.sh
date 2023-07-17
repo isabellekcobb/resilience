@@ -87,8 +87,8 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
 
-    cut -d ',' -f 1 "$OPENFIDO_INPUT/$POLE_DATA" > latitude.csv
-    cut -d ',' -f 2 "$OPENFIDO_INPUT/$POLE_DATA" > longitude.csv
+    cut -d ',' -f 1 "$OPENFIDO_INPUT/$POLE_DATA" >$OPENFIDO_OUTPUT/latitude.csv
+    cut -d ',' -f 2 "$OPENFIDO_INPUT/$POLE_DATA" >$OPENFIDO_OUTPUT/longitude.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/latlongtozip.py
     
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/income_data.py
