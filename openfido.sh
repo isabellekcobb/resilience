@@ -92,7 +92,6 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/testing_subcommand.py
 
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/income_data.py
     if [ "$USECASE" = "--" ]; then
         echo "ERROR [openfido.sh]: Please set a usecase for pole analysis" > /dev/stderr
         error
