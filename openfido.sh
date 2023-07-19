@@ -14,7 +14,7 @@ error()
 }
 
 # configure template 
-gridlabd template config set GITUSER isabellekcobb
+gridlabd template config set GITUSER slacgismo
 gridlabd template config set GITREPO gridlabd-template
 gridlabd template config set GITBRANCH develop-add-veg
 gridlabd template get $TEMPLATE
@@ -77,8 +77,6 @@ else
     USECASE="all"
     POLE_NAME=""
 fi
- 
-
 if [ "$ANALYSIS" = "vegetation_analysis" ]; then 
     echo "Running vegetation analysis, only."
     gridlabd geodata merge -D elevation $OPENFIDO_INPUT/$POLE_DATA -r 30 | gridlabd geodata merge -D vegetation >$OPENFIDO_OUTPUT/path_vege.csv
@@ -86,8 +84,8 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     gridlabd geodata merge -D powerline $OPENFIDO_OUTPUT/path_vege.csv --cable_type="TACSR/AC 610mm^2" >$OPENFIDO_OUTPUT/path_result.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
-
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
+
     if [ "$USECASE" = "--" ]; then
         echo "ERROR [openfido.sh]: Please set a usecase for pole analysis" > /dev/stderr
         error
@@ -117,7 +115,6 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
         gridlabd pole_analysis $OPENFIDO_OUTPUT/$GLM_NAME.glm --analysis=$USECASE --wind_speed=$WIND_SPEED --wind_direction=$WIND_DIR --direction_increment=$WIND_DIR_INC --speed_increment=$WIND_SPEED_INC --segment=$POLE_DIV --output=$OPENFIDO_OUTPUT/$RESULT_NAME\_$POLE_NAME$USECASE.csv $POLE_OPTION
     fi
 fi 
-
 
 # ( gridlabd template $TEMPLATE_CFG get $TEMPLATE && gridlabd --redirect all $OPTIONS -t $TEMPLATE  ) || error
 
