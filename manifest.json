@@ -73,9 +73,15 @@
 			    "input_type": "upload"
     },
 "Zipcode Data Input": { "input_type": "title" },
-			"ZIPCODE_DATA": {
+			"SHP_DATA": {
 			    "prompt": "Include zipcode data (shp)",
 			    "description": "Zipcode data, shp",
+			    "default": "",
+			    "input_type": "upload"
+    },
+	  "SHX_DATA": {
+			    "prompt": "Include zipcode data (shx)",
+			    "description": "Zipcode data, shx",
 			    "default": "",
 			    "input_type": "upload"
     }
