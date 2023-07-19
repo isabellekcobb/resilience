@@ -89,7 +89,7 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
 
     cut -d ',' -f 3 $OPENFIDO_OUTPUT/path_result.csv >$OPENFIDO_OUTPUT/latitude.csv
     cut -d ',' -f 4 $OPENFIDO_OUTPUT/path_result.csv>$OPENFIDO_OUTPUT/longitude.csv
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/testing_subcommand.py
+    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/add_income.py
 
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
     if [ "$USECASE" = "--" ]; then
