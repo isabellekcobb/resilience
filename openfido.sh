@@ -87,12 +87,7 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
 
-    cut -d ',' -f 3 $OPENFIDO_OUTPUT/path_result.csv >$OPENFIDO_OUTPUT/latitude.csv
-    cut -d ',' -f 4 $OPENFIDO_OUTPUT/path_result.csv>$OPENFIDO_OUTPUT/longitude.csv
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/testing_subcommand.py
-
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/income_data.py
     if [ "$USECASE" = "--" ]; then
         echo "ERROR [openfido.sh]: Please set a usecase for pole analysis" > /dev/stderr
         error
