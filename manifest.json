@@ -3,7 +3,7 @@
   "description": "Resilience analysis",
   "docker": "slacgismo/gridlabd:develop",
   "git": "https://github.com/isabellekcobb/resilience.git",
-  "branch": "main",
+  "branch": "pole-and-veg-analysis",
   "script": "openfido.sh",
   "manual": {
     "config": "csv"
