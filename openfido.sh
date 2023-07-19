@@ -86,7 +86,7 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     gridlabd geodata merge -D powerline $OPENFIDO_OUTPUT/path_vege.csv --cable_type="TACSR/AC 610mm^2" >$OPENFIDO_OUTPUT/path_result.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
-    gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/USA_ZIP_Code_Boundaries.shp -o $OPENFIDO_OUTPUT/USA_ZIP_Code_Boundaries.shp
+    gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/USA_ZIP_Code_Boundaries.shp
 
     cut -d ',' -f 3 $OPENFIDO_OUTPUT/path_result.csv >$OPENFIDO_OUTPUT/latitude.csv
     cut -d ',' -f 4 $OPENFIDO_OUTPUT/path_result.csv>$OPENFIDO_OUTPUT/longitude.csv
