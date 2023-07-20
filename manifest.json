@@ -65,25 +65,18 @@
       "default": "100.0",
       "input_type": "str"
     },
-    "Income Data Input": { "input_type": "title" },
-			"INCOME_DATA": {
-			    "prompt": "Include income data (csv/xls)",
-			    "description": "Income data, csv/xls",
-			    "default": "",
-			    "input_type": "upload"
-    },
-"Zipcode Data Input": { "input_type": "title" },
-			"SHP_DATA": {
-			    "prompt": "Include zipcode data (shp)",
-			    "description": "Zipcode data, shp",
-			    "default": "",
-			    "input_type": "upload"
-    },
-	  "SHX_DATA": {
-			    "prompt": "Include zipcode data (shx)",
-			    "description": "Zipcode data, shx",
-			    "default": "",
-			    "input_type": "upload"
+    "Census Data Input": { "input_type": "title" },
+	"INCOME_DATA": {
+		"prompt": "Include income data (csv/xls)",
+		"description": "Income data, csv/xls",
+		"default": "",
+		"input_type": "upload"
+    },	
+	  "ZIPCODE_DATA": {
+		"prompt": "Include zipcode data (geojson)",
+		"description": "Zipcode data, geojson",
+		"default": "",
+		"input_type": "upload"
     }
   }
 }
