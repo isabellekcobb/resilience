@@ -84,12 +84,13 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     gridlabd geodata merge -D elevation $OPENFIDO_INPUT/$POLE_DATA -r 30 | gridlabd geodata merge -D vegetation >$OPENFIDO_OUTPUT/path_vege.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/add_info.py # this needs to get integrated into the gridlabd source code
     gridlabd geodata merge -D powerline $OPENFIDO_OUTPUT/path_vege.csv --cable_type="TACSR/AC 610mm^2" >$OPENFIDO_OUTPUT/path_result.csv
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
-    gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
 
     cut -d ',' -f 3 $OPENFIDO_OUTPUT/path_result.csv >$OPENFIDO_OUTPUT/latitude.csv
     cut -d ',' -f 4 $OPENFIDO_OUTPUT/path_result.csv>$OPENFIDO_OUTPUT/longitude.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/testing_geopandas.py
+
+    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
+    gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
 
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
     if [ "$USECASE" = "--" ]; then
