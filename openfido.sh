@@ -92,7 +92,6 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium_data.py
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/prioritize.py
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/critical_load.py
 
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
     if [ "$USECASE" = "--" ]; then
@@ -123,6 +122,7 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
     else
         gridlabd pole_analysis $OPENFIDO_OUTPUT/$GLM_NAME.glm --analysis=$USECASE --wind_speed=$WIND_SPEED --wind_direction=$WIND_DIR --direction_increment=$WIND_DIR_INC --speed_increment=$WIND_SPEED_INC --segment=$POLE_DIV --output=$OPENFIDO_OUTPUT/$RESULT_NAME\_$POLE_NAME$USECASE.csv $POLE_OPTION
     fi
+    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/critical_load.py
 fi 
 
 
