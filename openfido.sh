@@ -124,7 +124,7 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
     fi
     # gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/model.glm
     # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/critical_load2.py
-    # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/weather.py
+    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/weather.py
 fi 
 
 
