@@ -77,12 +77,6 @@
 		"description": "Zipcode data, geojson",
 		"default": "",
 		"input_type": "upload"
-    },
-	   "TESTING": {
-		"prompt": "Include zipcode data (geojson)",
-		"description": "Zipcode data, geojson",
-		"default": "",
-		"input_type": "upload"
     }
   }
 }
