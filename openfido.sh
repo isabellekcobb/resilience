@@ -122,9 +122,6 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
     else
         gridlabd pole_analysis $OPENFIDO_OUTPUT/$GLM_NAME.glm --analysis=$USECASE --wind_speed=$WIND_SPEED --wind_direction=$WIND_DIR --direction_increment=$WIND_DIR_INC --speed_increment=$WIND_SPEED_INC --segment=$POLE_DIV --output=$OPENFIDO_OUTPUT/$RESULT_NAME\_$POLE_NAME$USECASE.csv $POLE_OPTION
     fi
-    # gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/model.glm
-    # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/critical_load2.py
-    # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/weather.py
     # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/group.py -i=network.json --modify -o=groups.glm --force
     gridlabd -C 123.glm -o 123.json
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/group.py -i=123.json --modify -o=groups.glm --force
