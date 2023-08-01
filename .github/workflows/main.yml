@@ -29,4 +29,4 @@ jobs:
         if: failure()
         with:
           name: autotest-errors
-          path: autotest-errors.tar.gz
+          path: autotest-errors.tar
