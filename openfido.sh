@@ -93,9 +93,9 @@ if [ "$ANALYSIS" = "vegetation_analysis" ]; then
     gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/folium.glm -D html_save_options="--cluster" -o $OPENFIDO_OUTPUT/folium.html
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/prioritize.py
 
-    gridlabd model get IEEE/123
-    gridlabd -C 123.glm -o 123.json
-    gridlabd group -i=123.json --modify -o=groups.glm --force
+    # gridlabd model get IEEE/123
+    # gridlabd -C 123.glm -o 123.json
+    # gridlabd group -i=123.json --modify -o=groups.glm --force
 
 elif [ "$ANALYSIS" = "pole_analysis" ]; then 
     if [ "$USECASE" = "--" ]; then
