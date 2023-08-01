@@ -125,9 +125,6 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
     # gridlabd /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/model.glm
     # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/critical_load2.py
     # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/weather.py
-    # gridlabd model get IEEE/123
-    gridlabd -C 123.glm -o 123.json
-    gridlabd group -i=123.json --modify -o=groups.glm --force
 fi 
 
 
