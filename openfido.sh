@@ -153,10 +153,10 @@ elif [ "$ANALYSIS" = "pole+veg_analysis" ]; then
     else
         gridlabd pole_analysis $OPENFIDO_OUTPUT/$GLM_NAME.glm --analysis=$USECASE --wind_speed=$WIND_SPEED --wind_direction=$WIND_DIR --direction_increment=$WIND_DIR_INC --speed_increment=$WIND_SPEED_INC --segment=$POLE_DIV --output=$OPENFIDO_OUTPUT/$RESULT_NAME\_$POLE_NAME$USECASE.csv $POLE_OPTION
     fi
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/group.py -i=network.json --modify -o=groups.glm --force
-    # gridlabd -C 123.glm -o 123.json
-    # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/group.py -i=123.json --modify -o=groups.glm --force
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/critical_load.py network.json
+    # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/group.py -i=network.json --modify -o=groups.glm --force
+    gridlabd -C 123.glm -o 123.json
+    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/group.py -i=123.json --modify -o=groups.glm --force
+    # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/critical_load.py network.json
 
     gridlabd geodata merge -D elevation $OPENFIDO_INPUT/$VEGETATION_DATA -r 30 | gridlabd geodata merge -D vegetation >$OPENFIDO_OUTPUT/path_vege.csv
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/add_info.py # this needs to get integrated into the gridlabd source code
