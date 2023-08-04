@@ -126,8 +126,7 @@ elif [ "$ANALYSIS" = "pole_analysis" ]; then
     python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/group.py -i=network.json --modify -o=groups.glm --force
     # gridlabd -C 123.glm -o 123.json
     # python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/group.py -i=123.json --modify -o=groups.glm --force
-    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/critical_load.py network.json
-fi 
+    python3 /usr/local/share/gridlabd/template/US/CA/SLAC/anticipation/critical_load.py network.json 
 
 elif [ "$ANALYSIS" = "pole+veg_analysis" ]; then 
     gridlabd geodata merge -D elevation $OPENFIDO_INPUT/$VEGETATION_DATA -r 30 | gridlabd geodata merge -D vegetation >$OPENFIDO_OUTPUT/path_vege.csv
