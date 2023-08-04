@@ -11,13 +11,19 @@
   "config": {
     "ANALYSIS": {
       "description": "Type of analysis to conduct",
-      "choices": "pole_analysis, vegetation_analysis, switch_reconfiguration",
+      "choices": "pole_analysis, vegetation_analysis, pole+veg_analysis, switch_reconfiguration",
       "default": "pole_analysis",
       "input_type": "enum"
     },
     "POLE_DATA": {
       "prompt": "Include pole data (csv/xls)",
       "description": "Pole data, csv/xls",
+      "default": "",
+      "input_type": "upload"
+    },
+    "VEGETATION_DATA": {
+      "prompt": "Include vegetation data (csv/xls)",
+      "description": "Vegetation data, csv/xls",
       "default": "",
       "input_type": "upload"
     },
